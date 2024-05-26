@@ -1,0 +1,5 @@
+
+Descubrimiento de puertos
+nmap 10.10.10.8 -vvv -Pn --open -sS --min-rate 5000 -p- -n
+
+
