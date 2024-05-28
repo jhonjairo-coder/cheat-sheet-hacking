@@ -1,1 +1,4 @@
+ENUMERACION DE DIRECTORIOS
 # wfuzz -c --hc=404 -t 200 -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt http://10.10.10.9/FUZZ
+# gobuster dir -u http://10.10.10.9/ -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -t20
+
